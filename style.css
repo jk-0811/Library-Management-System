@@ -1,0 +1,344 @@
+/* Premium Color Palette & Material Architecture Blueprint */
+:root {
+    /* Rich Modern Canvas Background */
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+    --panel-bg: rgba(255, 255, 255, 0.07);
+    --panel-border: rgba(255, 255, 255, 0.1);
+    
+    /* Typography Palette */
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-dark: #0f172a;
+    
+    /* Vibrant Functional Semantic Colors */
+    --accent-add: #10b981;
+    --accent-add-hover: #059669;
+    --accent-issue: #f59e0b;
+    --accent-issue-hover: #d97706;
+    --accent-return: #6366f1;
+    --accent-return-hover: #4f46e5;
+    --accent-delete: #f43f5e;
+    --accent-delete-hover: #e11d48;
+    
+    /* High-Fidelity Shadow Distributions */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    --shadow-node: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+    
+    /* Physics-based animation curves */
+    --ease-elastic: cubic-bezier(0.34, 1.6, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+body {
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    color: var(--text-primary);
+    margin: 0;
+    padding: 40px 20px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 45px;
+    animation: fadeInDown 0.8s var(--ease-smooth);
+}
+
+header h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin: 0 0 10px 0;
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    
+    /* 🌟 COMPATIBILITY FIXES FOR GRADIENT TEXT 🌟 */
+    -webkit-background-clip: text; /* Compatibility for Safari, Chrome, and older Edge */
+    -moz-background-clip: text;    /* Compatibility for older Firefox versions */
+    background-clip: text;         /* The standard W3C property for modern compliance */
+    
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 4px 12px rgba(56, 189, 248, 0.15);
+}
+
+.subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin: 0;
+}
+
+.main-content {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 35px;
+    align-items: start;
+}
+
+@media (max-width: 900px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Glassmorphism Panel Container Controls */
+.panel {
+    background: var(--panel-bg);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid var(--panel-border);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: var(--shadow-md);
+    animation: scaleInUp 0.6s var(--ease-smooth) both;
+}
+
+.list-panel {
+    animation-delay: 0.15s;
+    background: rgba(15, 23, 42, 0.4);
+}
+
+.panel h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-top: 0;
+    margin-bottom: 24px;
+    color: #f1f5f9;
+}
+
+.panel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.panel-header h2 {
+    margin: 0;
+}
+
+.badge {
+    background: rgba(56, 189, 248, 0.12);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    color: #38bdf8;
+    padding: 5px 14px;
+    border-radius: 9999px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-sm);
+    letter-spacing: 0.02em;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+input {
+    width: 100%;
+    padding: 14px 16px;
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-sizing: border-box;
+    font-size: 0.95rem;
+    color: white;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.25s var(--ease-smooth);
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    background: rgba(15, 23, 42, 0.8);
+    box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.2), inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Micro-interaction UI Buttons with Active Feedback Loops */
+.btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s var(--ease-smooth);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: -0.01em;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+.btn:active {
+    transform: translateY(1px);
+    filter: brightness(0.95);
+}
+
+.btn-add { background-color: var(--accent-add); color: white; box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3); }
+.btn-issue { background-color: var(--accent-issue); color: white; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3); }
+.btn-return { background-color: var(--accent-return); color: white; box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3); }
+.btn-delete { background-color: var(--accent-delete); color: white; box-shadow: 0 4px 14px rgba(244, 63, 94, 0.3); }
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.15), rgba(255,255,255,0));
+    margin: 30px 0;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+}
+
+/* Structural Singly Linked List Data Row Rendering Nodes */
+.catalog-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 36px; /* Perfect physical layout room for link indicators */
+}
+
+.book-node {
+    display: flex;
+    align-items: center;
+    background: rgba(30, 41, 59, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    padding: 20px 24px;
+    position: relative;
+    box-shadow: var(--shadow-node);
+    transition: transform 0.35s var(--ease-elastic), box-shadow 0.3s var(--ease-smooth), border-color 0.3s var(--ease-smooth);
+    animation: slideInRight 0.5s var(--ease-elastic) both;
+}
+
+.book-node:hover {
+    transform: translateX(10px) scale(1.01);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4);
+    border-color: rgba(56, 189, 248, 0.4);
+}
+
+.node-data {
+    flex-grow: 1;
+}
+
+.node-id {
+    font-size: 0.75rem;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #cbd5e1;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.node-title {
+    margin: 10px 0 4px 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.01em;
+}
+
+.node-author {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.status-indicator {
+    padding: 6px 14px;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    transition: all 0.3s var(--ease-smooth);
+    text-transform: uppercase;
+}
+
+.status-available { 
+    background-color: rgba(16, 185, 129, 0.12); 
+    color: #34d399; 
+    border: 1px solid rgba(16, 185, 129, 0.3); 
+    box-shadow: 0 0 15px rgba(16, 185, 129, 0.1);
+}
+
+.status-issued { 
+    background-color: rgba(245, 158, 11, 0.12); 
+    color: #fbbf24; 
+    border: 1px solid rgba(245, 158, 11, 0.3); 
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.1);
+}
+
+/* Sequential Memory Address Link Designators (Arrows) */
+.book-node::after {
+    content: "⚡ NEXT_NODE_POINTER";
+    position: absolute;
+    bottom: -29px;
+    left: 45px;
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    color: #64748b;
+    background: #0f172a;
+    padding: 3px 12px;
+    border-radius: 6px;
+    border: 1px dashed rgba(255, 255, 255, 0.15);
+    animation: pulsePointer 2s infinite ease-in-out;
+    box-shadow: var(--shadow-sm);
+}
+
+.book-node:last-child::after {
+    content: "🔒 TAIL_POINTER: NULL";
+    color: #f43f5e;
+    background: rgba(244, 63, 94, 0.08);
+    border-color: rgba(244, 63, 94, 0.3);
+    box-shadow: none;
+    animation: none;
+}
+
+/* Structural Animation Vectors */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-25px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleInUp {
+    from { opacity: 0; transform: scale(0.97) translateY(30px); filter: blur(5px); }
+    to { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(-40px); filter: blur(8px); }
+    to { opacity: 1; transform: translateX(0); filter: blur(0); }
+}
+
+@keyframes pulsePointer {
+    0%, 100% { transform: translateY(0); opacity: 0.7; color: #64748b; }
+    50% { transform: translateY(4px); opacity: 1; color: #38bdf8; border-color: rgba(56, 189, 248, 0.4); }
+}

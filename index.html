@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System (Linked List)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📚 Library Management System</h1>
+            <p class="subtitle">Structured Using Singly Linked List Architecture</p>
+        </header>
+
+        <div class="main-content">
+            
+            <div class="panel form-panel">
+                <h2>Manage Books</h2>
+                <form id="bookForm">
+                    <div class="form-group">
+                        <label for="bookID">Book ID</label>
+                        <input type="number" id="bookID" placeholder="e.g., 101" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookTitle">Book Title</label>
+                        <input type="text" id="bookTitle" placeholder="e.g., The Hobbit" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bookAuthor">Author Name</label>
+                        <input type="text" id="bookAuthor" placeholder="e.g., J.R.R. Tolkien" required>
+                    </div>
+                    <button type="submit" class="btn btn-add">➕ Add Node to List</button>
+                </form>
+                
+                <hr class="divider">
+                
+                <div class="search-actions">
+                    <h2>Quick Actions</h2>
+                    <div class="form-group">
+                        <label for="actionID">Target Book ID</label>
+                        <input type="number" id="actionID" placeholder="Enter Book ID">
+                    </div>
+                    <div class="btn-grid">
+                        <button onclick="handleIssue()" class="btn btn-issue">📤 Issue Book</button>
+                        <button onclick="handleReturn()" class="btn btn-return">📥 Return Book</button>
+                        <button onclick="handleDelete()" class="btn btn-delete">🗑️ Delete Book</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel list-panel">
+                <div class="panel-header">
+                    <h2>Live Catalog View</h2>
+                    <span id="nodeCount" class="badge">Nodes: 0</span>
+                </div>
+                <div id="catalogContainer" class="catalog-grid">
+                    </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
